@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import Menu from './components/Menu'
+import Menu from "./components/Menu";
 
 function App() {
   return (
-    <div className='max-w-7xl'>
-      <Menu></Menu>
+    <div>
+      <div className="max-w-5xl m-auto font-poppins pt-6">
+        <Menu></Menu>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

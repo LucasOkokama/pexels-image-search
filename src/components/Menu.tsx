@@ -1,15 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { MenuStyle } from "./styles/Menu.styled";
 
 const Menu = () => {
   return (
-    <div className="flex justify-between">
-      <div>Wemage</div>
-      <div>Unsplash Image Search</div>
-      <div>
-        <FontAwesomeIcon icon={faGithub} />
+    <MenuStyle>
+      <div id="brand">
+        <FontAwesomeIcon icon={faGlobe} />
+        Wemage
       </div>
-    </div>
+      <div id="title">Unsplash Image Search</div>
+      <div>
+        <a
+          href="https://github.com/LucasOkokama/unsplash-image-search"
+          target="_blank"
+        >
+          <FontAwesomeIcon icon={faGithub} id="social-media" />
+        </a>
+      </div>
+    </MenuStyle>
   );
 };
 
