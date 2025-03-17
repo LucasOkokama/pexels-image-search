@@ -1,13 +1,14 @@
 import { styled } from "styled-components"
 
 export const MenuStyle = styled.nav`
+  color: ${({ theme }) => theme.colors.text};
   display: flex;
   font-size: 24px;
   justify-content: space-between;
 
   #brand {
     align-items: center;
-    color: #730092;
+    color: ${({ theme }) => theme.colors.brand};
     display: flex;
     font-size: 20px;
     font-weight: 500;
@@ -16,6 +17,11 @@ export const MenuStyle = styled.nav`
 
   #title {
     font-weight: 600;
+  }
+
+  #utils{
+    display: flex;
+    gap: 12px;
   }
 
   #social-media{
