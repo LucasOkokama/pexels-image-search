@@ -32,4 +32,11 @@ export const MenuStyle = styled.nav`
       color: #730092;
     }
   }
+
+
+  @media(max-width: ${({ theme }) => theme.dimensions.sm}){
+    #title{
+      display: none;
+    }
+  }
 `
