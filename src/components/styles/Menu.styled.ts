@@ -1,7 +1,7 @@
 import { styled } from "styled-components"
 
 export const MenuStyle = styled.nav`
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.sup};
   display: flex;
   font-size: 24px;
   justify-content: space-between;
