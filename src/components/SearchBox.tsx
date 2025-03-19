@@ -2,24 +2,65 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { SearchBoxStyle } from "./styles/SearchBoxStyle";
 import TagSearchValue from "./TagSearchValue";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
-const SearchBox = () => {
+interface SearchBoxProps {
+  setImages: React.Dispatch<React.SetStateAction<never[]>>;
+}
+
+const SearchBox = ({ setImages }: SearchBoxProps) => {
+  const PEXELS_API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
+  const currentPage = 1;
+  const perPage = 13;
+
   const searchInput = useRef<HTMLInputElement>(null);
-
-  const handleSearch = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-
-    if (searchInput.current != null) {
-      console.log(searchInput.current.value);
-    }
-  };
 
   const handleTag = (tag: string) => {
     if (searchInput.current != null) {
       searchInput.current.value = tag;
     }
   };
+
+  const fetchInitialImages = async () => {
+    try {
+      const response = await fetch(
+        `https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`,
+        {
+          headers: {
+            Authorization: PEXELS_API_KEY,
+          },
+        }
+      );
+
+      const data = await response.json();
+      setImages(data.photos);
+    } catch (err) {
+      console.error("Error fetching the images:", err);
+    }
+  };
+
+  const handleSearch = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    if (searchInput.current != null && searchInput.current.value != "") {
+      const response = await fetch(
+        `https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`,
+        {
+          headers: {
+            Authorization: PEXELS_API_KEY,
+          },
+        }
+      );
+
+      const data = await response.json();
+      setImages(data.photos);
+      console.log(data);
+    }
+  };
+
+  useEffect(() => {
+    fetchInitialImages();
+  }, []);
 
   return (
     <SearchBoxStyle>
@@ -30,7 +71,7 @@ const SearchBox = () => {
           placeholder="Search for something cool!"
           ref={searchInput}
         />
-        <button id="searchButton" onClick={handleSearch}>
+        <button id="searchButton">
           <FontAwesomeIcon icon={faMagnifyingGlass} /> Search
         </button>
       </div>

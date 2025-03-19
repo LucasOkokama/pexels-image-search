@@ -4,6 +4,7 @@ import Menu from "./components/Menu";
 import { useState } from "react";
 import SearchBox from "./components/SearchBox";
 import { StyledParagraph } from "./components/styles/StyledParagraph";
+import ImageGallery from "./components/ImageGallery";
 
 const dimensions = {
   sm: "640px",
@@ -53,6 +54,8 @@ function App() {
   const [theme, setTheme] = useState("light");
   const isDarkTheme = theme === "dark";
 
+  const [images, setImages] = useState([]);
+
   const toggleTheme = () => {
     setTheme(isDarkTheme ? "light" : "dark");
   };
@@ -69,7 +72,11 @@ function App() {
               find exactly what you're looking for all in one place.
             </StyledParagraph>
 
-            <SearchBox></SearchBox>
+            <SearchBox setImages={setImages} />
+          </div>
+
+          <div className="mt-16">
+            <ImageGallery images={images} />
           </div>
         </div>
       </AppBody>
