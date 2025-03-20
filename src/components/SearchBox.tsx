@@ -5,7 +5,6 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { SearchBoxStyle } from "./styles/SearchBoxStyle";
 import TagSearchValue from "./TagSearchValue";
 import { useEffect, useRef, useState } from "react";
-import { preview } from "vite";
 
 type SearchBoxProps = {
   children: React.ReactNode;
@@ -19,6 +18,7 @@ const SearchBox = ({ children, setImages }: SearchBoxProps) => {
   const perPage = 13;
 
   const searchInput = useRef<HTMLInputElement>(null);
+  const [searchedTerm, setSearchedTerm] = useState("");
 
   const handleTag = (tag: string) => {
     if (searchInput.current != null) {
@@ -44,34 +44,46 @@ const SearchBox = ({ children, setImages }: SearchBoxProps) => {
     }
   };
 
-  const handleSearch = async (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleFetchImages = async () => {
+    const response = await fetch(
+      `https://api.pexels.com/v1/search?query=${searchedTerm}&page=${currentPage}&per_page=${perPage}`,
+      {
+        headers: {
+          Authorization: PEXELS_API_KEY,
+        },
+      }
+    );
+    const data = await response.json();
+    setImages(data.photos);
+  };
+
+  const handleSearch = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-
-    if (searchInput.current != null && searchInput.current.value != "") {
-      const response = await fetch(
-        `https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`,
-        {
-          headers: {
-            Authorization: PEXELS_API_KEY,
-          },
-        }
-      );
-
-      const data = await response.json();
-      setImages(data.photos);
-      console.log(data);
+    if (searchInput.current != null) {
+      setSearchedTerm(searchInput.current.value);
     }
   };
 
   useEffect(() => {
-    if (searchInput.current == null || searchInput.current.value === "") {
+    fetchInitialImages();
+  }, []);
+
+  useEffect(() => {
+    if (searchInput.current === null || searchedTerm === "") {
       fetchInitialImages();
+    } else {
+      handleFetchImages();
     }
   }, [currentPage]);
 
   useEffect(() => {
-    fetchInitialImages();
-  }, []);
+    setCurrentPage(1);
+    if (searchInput.current != null && searchedTerm != "") {
+      handleFetchImages();
+    } else {
+      fetchInitialImages();
+    }
+  }, [searchedTerm]);
 
   return (
     <SearchBoxStyle>
@@ -83,7 +95,7 @@ const SearchBox = ({ children, setImages }: SearchBoxProps) => {
             placeholder="Search for something cool!"
             ref={searchInput}
           />
-          <button id="searchButton">
+          <button id="searchButton" onClick={handleSearch}>
             <FontAwesomeIcon icon={faMagnifyingGlass} /> Search
           </button>
         </div>
