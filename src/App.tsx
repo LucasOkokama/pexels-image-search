@@ -59,7 +59,7 @@ function App() {
         <div className="max-w-5xl m-auto font-poppins pt-6 px-6 md:px-14">
           <Menu toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}></Menu>
 
-          <div className="max-w-2xl m-auto mt-22">
+          <div className="max-w-2xl m-auto mt-20">
             <StyledParagraph>
               Explore a variety of categories, discover stunning images, and{" "}
               <span id="highlight">find exactly what you're looking for</span>{" "}

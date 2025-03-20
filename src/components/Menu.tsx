@@ -19,7 +19,7 @@ const Menu = ({
       </div>
       <div id="utils">
         <a
-          href="https://github.com/LucasOkokama/unsplash-image-search"
+          href="https://github.com/LucasOkokama/pexels-image-search"
           target="_blank"
         >
           <GitHub id="social-media" size={20} />
