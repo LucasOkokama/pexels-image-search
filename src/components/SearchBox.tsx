@@ -95,7 +95,7 @@ const SearchBox = ({ children, setImages }: SearchBoxProps) => {
           <input
             type="text"
             id="searchBox"
-            placeholder="Search for something cool!"
+            placeholder="Search for something cool..."
             ref={searchInput}
             onKeyDown={(event) => {
               if (event.key === "Enter") {

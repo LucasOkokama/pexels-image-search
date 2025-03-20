@@ -7,7 +7,7 @@ export const SearchBoxStyle = styled.div`
     flex-direction: column;
     font-size: 14px;
     gap: 16px;
-    margin-top: 25px;
+    margin-top: 32px;
   }
 
   #searchBox {
