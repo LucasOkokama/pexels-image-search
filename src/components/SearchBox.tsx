@@ -23,6 +23,7 @@ const SearchBox = ({ children, setImages }: SearchBoxProps) => {
   const handleTag = (tag: string) => {
     if (searchInput.current != null) {
       searchInput.current.value = tag;
+      handleSearch();
     }
   };
 
@@ -57,9 +58,11 @@ const SearchBox = ({ children, setImages }: SearchBoxProps) => {
     setImages(data.photos);
   };
 
-  const handleSearch = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    if (searchInput.current != null) {
+  const handleSearch = () => {
+    if (
+      searchInput.current != null &&
+      searchedTerm != searchInput.current.value
+    ) {
       setSearchedTerm(searchInput.current.value);
     }
   };
@@ -111,7 +114,7 @@ const SearchBox = ({ children, setImages }: SearchBoxProps) => {
             <TagSearchValue text="Star" iconName="faStar"></TagSearchValue>
           </div>
 
-          <div onClick={() => handleTag("Leaf")}>
+          <div onClick={() => handleTag("Nature")}>
             <TagSearchValue text="Nature" iconName="faLeaf"></TagSearchValue>
           </div>
 

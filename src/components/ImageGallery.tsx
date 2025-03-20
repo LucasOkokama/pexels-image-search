@@ -37,7 +37,8 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
 
               <a
                 href={image.src.original}
-                download={`${image.id}_${image.width}x${image.height}`}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <div className="download">
                   <Download size={14} />

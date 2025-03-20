@@ -28,7 +28,7 @@ const darkTheme = {
 
     placeholder: "#696c6d",
 
-    hoverTag: "#2c1636",
+    hoverTag: "#22072e",
   },
   dimensions,
 };
