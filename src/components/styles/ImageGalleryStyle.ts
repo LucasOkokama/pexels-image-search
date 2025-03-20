@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const ImageGalleryStyle = styled.div`
   columns: 292px;
   column-gap: 12px;
-  
+
   .card {
     margin-bottom: 12px;
     position: relative;
@@ -11,7 +11,7 @@ export const ImageGalleryStyle = styled.div`
   }
 
   .card:hover .details{
-    bottom: 2px;
+    bottom: 0px;
     opacity: 1;
   }
 
@@ -20,12 +20,13 @@ export const ImageGalleryStyle = styled.div`
   }
 
   .details {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
     bottom: -45px;
     color: #fff;
     display: flex;
     font-size: 14px;
     justify-content: space-between;
-    padding: 12px 15px;
+    padding: 16px 15px 12px 15px;
     position: absolute;
     transition: bottom .3s ease;
     opacity: 0;
