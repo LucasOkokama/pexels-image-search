@@ -6,7 +6,29 @@ interface ImageGalleryProps {
   images: any[];
 }
 
+interface DownloadLinkProps {
+  imgURL: string;
+  id: number;
+  width: number;
+  height: number;
+}
+
 const ImageGallery = ({ images }: ImageGalleryProps) => {
+  const downloadImage = async ({
+    imgURL,
+    id,
+    width,
+    height,
+  }: DownloadLinkProps) => {
+    const response = (await fetch(imgURL)).blob();
+
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(await response);
+    link.download = `${id}_${width}x${height}`;
+
+    link.click();
+  };
+
   return (
     <ImageGalleryStyle>
       {images.map((image: any) => (
@@ -36,9 +58,16 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
               </a>
 
               <a
-                href={image.src.original}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                onClick={(event) => {
+                  event.preventDefault();
+                  downloadImage({
+                    imgURL: image.src.original,
+                    id: image.id,
+                    width: image.width,
+                    height: image.height,
+                  });
+                }}
               >
                 <div className="download">
                   <Download size={14} />
