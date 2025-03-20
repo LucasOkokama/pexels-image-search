@@ -16,8 +16,10 @@ export const MenuStyle = styled.nav`
   }
 
   #utils{
+    align-items: center;
     display: flex;
-    gap: 12px;
+    justify-content: center;
+    gap: 16px;
   }
 
   #social-media{

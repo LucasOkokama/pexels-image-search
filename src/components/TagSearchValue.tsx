@@ -6,6 +6,7 @@ import {
   faStar,
   faLeaf,
   faMoon,
+  faBolt
 } from "@fortawesome/free-solid-svg-icons";
 
 const icons = {
@@ -14,6 +15,7 @@ const icons = {
   faStar,
   faLeaf,
   faMoon,
+  faBolt
 };
 
 interface TagSearchValueProps {

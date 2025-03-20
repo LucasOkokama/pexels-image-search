@@ -28,7 +28,7 @@ const darkTheme = {
 
     placeholder: "#696c6d",
 
-    hoverTag: "#22072e",
+    hoverTag: "#2c053d",
   },
   dimensions,
 };
@@ -46,7 +46,7 @@ const lightTheme = {
 
     placeholder: "#adb1b6",
 
-    hoverTag: "#fbf1ff",
+    hoverTag: "#f9ebff",
   },
   dimensions,
 };
@@ -78,7 +78,7 @@ function App() {
             <ImageGallery images={images} />
           </SearchBox>
 
-          <div className="mt-10">
+          <div className="mt-8">
             <CopyrightTextStyle>
               © {new Date().getFullYear()}{" "}
               <a

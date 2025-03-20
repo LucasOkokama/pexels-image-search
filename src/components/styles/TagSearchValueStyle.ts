@@ -16,5 +16,6 @@ export const TahSearchValueStyle = styled.div`
 
   &:hover{
     background-color: ${({ theme }) => theme.colors.hoverTag};
+    color: ${({ theme }) => theme.colors.sup};
   }
 `

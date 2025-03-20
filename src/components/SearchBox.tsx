@@ -115,6 +115,10 @@ const SearchBox = ({ children, setImages }: SearchBoxProps) => {
             ></TagSearchValue>
           </div>
 
+          <div onClick={() => handleTag("Thunder")}>
+            <TagSearchValue text="Thunder" iconName="faBolt"></TagSearchValue>
+          </div>
+
           <div onClick={() => handleTag("Star")}>
             <TagSearchValue text="Star" iconName="faStar"></TagSearchValue>
           </div>
@@ -134,7 +138,7 @@ const SearchBox = ({ children, setImages }: SearchBoxProps) => {
           className={`navigate-pages-btn ${
             currentPage > 1
               ? "opacity-100 cursor-pointer"
-              : "opacity-60 cursor-not-allowed"
+              : "opacity-50 cursor-not-allowed"
           }`}
           onClick={() => {
             if (currentPage > 1) setCurrentPage((previous) => previous - 1);
@@ -148,7 +152,7 @@ const SearchBox = ({ children, setImages }: SearchBoxProps) => {
           className={`navigate-pages-btn ${
             currentPage < 20
               ? "opacity-100 cursor-pointer"
-              : "opacity-60 cursor-not-allowed"
+              : "opacity-50 cursor-not-allowed"
           }`}
           onClick={() => {
             if (currentPage < 20) setCurrentPage((previous) => previous + 1);

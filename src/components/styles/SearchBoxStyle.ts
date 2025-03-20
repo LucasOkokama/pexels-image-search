@@ -53,6 +53,7 @@ export const SearchBoxStyle = styled.div`
     align-items: center;
     color: ${({ theme }) => theme.colors.phrase};
     display: flex;
+    font-size: 14px;
     justify-content: space-evenly;
   }
 
