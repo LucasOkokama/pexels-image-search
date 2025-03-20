@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 export const ImageGalleryStyle = styled.div`
   columns: 292px;
   column-gap: 12px;
+  min-height: 396px;
 
   .card {
     margin-bottom: 12px;
@@ -28,7 +29,7 @@ export const ImageGalleryStyle = styled.div`
     justify-content: space-between;
     padding: 16px 15px 12px 15px;
     position: absolute;
-    transition: bottom .3s ease;
+    transition: bottom 0.3s ease, opacity 0.3s ease;
     opacity: 0;
     width: 100%;
   }
