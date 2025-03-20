@@ -15,10 +15,6 @@ export const MenuStyle = styled.nav`
     gap: 8px;
   }
 
-  #title {
-    font-weight: 600;
-  }
-
   #utils{
     display: flex;
     gap: 12px;

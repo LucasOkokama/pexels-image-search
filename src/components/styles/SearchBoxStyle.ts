@@ -79,5 +79,13 @@ export const SearchBoxStyle = styled.div`
     #searchButton {
       width: 100%;
     }
+
+    #navigate-pages{
+      justify-content: space-between
+    }
+
+    .navigate-pages-btn{
+      width: 92px;
+    }
   }
 `
