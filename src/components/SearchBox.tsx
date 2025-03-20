@@ -97,6 +97,11 @@ const SearchBox = ({ children, setImages }: SearchBoxProps) => {
             id="searchBox"
             placeholder="Search for something cool!"
             ref={searchInput}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                handleSearch();
+              }
+            }}
           />
           <button id="searchButton" onClick={handleSearch}>
             <FontAwesomeIcon icon={faMagnifyingGlass} /> Search
