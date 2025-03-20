@@ -71,13 +71,11 @@ function App() {
               Explore a variety of categories, discover stunning images, and
               find exactly what you're looking for all in one place.
             </StyledParagraph>
-
-            <SearchBox setImages={setImages} />
           </div>
 
-          <div className="mt-16">
-            <ImageGallery images={images} />
-          </div>
+          <SearchBox setImages={setImages}>
+              <ImageGallery images={images} />
+          </SearchBox>
         </div>
       </AppBody>
     </ThemeProvider>

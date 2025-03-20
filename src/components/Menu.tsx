@@ -17,7 +17,7 @@ const Menu = ({
         <FontAwesomeIcon icon={faGlobe} />
         Wemage
       </div>
-      <div id="title">Unsplash Image Search</div>
+      <div id="title">Pexels Image Search</div>
       <div id="utils">
         <a
           href="https://github.com/LucasOkokama/unsplash-image-search"

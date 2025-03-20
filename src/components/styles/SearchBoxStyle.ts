@@ -1,11 +1,14 @@
 import { styled } from "styled-components";
 
 export const SearchBoxStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-  gap: 16px;
-  margin-top: 25px;
+
+  #search-box{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    gap: 16px;
+    margin-top: 25px;
+  }
 
   #searchBox {
     border: 1px solid ${({ theme }) => theme.colors.border};
@@ -43,6 +46,30 @@ export const SearchBoxStyle = styled.div`
   }
 
   #searchButton:hover{
+    background-color: #934cd9;
+  }
+
+  #navigate-pages{
+    align-items: center;
+    color: ${({ theme }) => theme.colors.phrase};
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .navigate-pages-btn{
+    align-items: center;
+    background-color: #7A29CA;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    font-size: 12px;
+    gap: 8px;
+    justify-content: center;
+    padding: 8px 16px;
+    transition: .5s;
+  }
+
+  .navigate-pages-btn:hover{
     background-color: #934cd9;
   }
 
