@@ -5,6 +5,7 @@ import { useState } from "react";
 import SearchBox from "./components/SearchBox";
 import { StyledParagraph } from "./components/styles/StyledParagraph";
 import ImageGallery from "./components/ImageGallery";
+import { CopyrightTextStyle } from "./components/styles/CopyrightTextStyle";
 
 const dimensions = {
   sm: "640px",
@@ -74,8 +75,22 @@ function App() {
           </div>
 
           <SearchBox setImages={setImages}>
-              <ImageGallery images={images} />
+            <ImageGallery images={images} />
           </SearchBox>
+
+          <div className="mt-10">
+            <CopyrightTextStyle>
+              © {new Date().getFullYear()}{" "}
+              <a
+                href="https://github.com/LucasOkokama"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <b>Lucas Okokama</b>
+              </a>
+              . All rights reserved.
+            </CopyrightTextStyle>
+          </div>
         </div>
       </AppBody>
     </ThemeProvider>

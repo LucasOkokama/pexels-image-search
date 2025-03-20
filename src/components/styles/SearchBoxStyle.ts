@@ -67,6 +67,7 @@ export const SearchBoxStyle = styled.div`
     justify-content: center;
     padding: 8px 16px;
     transition: .5s;
+    width: 100px;
   }
 
   .navigate-pages-btn:hover{
