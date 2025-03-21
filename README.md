@@ -46,44 +46,28 @@ The project was developed using React, with HTML and TypeScript for page structu
     </tr>
 </table>
 
+
 # Requirements
-1. Install [`.NET SDK`](https://dotnet.microsoft.com/en-us/download) (includes .NET Runtime).
-2. Install [`SQL Server Express`](https://www.microsoft.com/en-us/sql-server/sql-server-downloads).
-3. Install an IDE of your choice. I personally recommend [`Visual Studio`](https://visualstudio.microsoft.com/downloads/) [OPTIONAL].
+1. Install [`Node.js`](https://nodejs.org/en) and ensure it includes the `npm` package manager.
+
 
 # How to run locally (command line)
 1. Run a `git clone` of the repository:
 ```
-git clone https://github.com/LucasOkokama/home-book-app-aspnetmvc.git
+git clone https://github.com/LucasOkokama/pexels-image-search.git
 ```
-2. Open the `home-book-app-aspnetmvc` folder and Install the `dependencies`:
+2. Open the `pexels-image-search` folder and install the `dependencies`:
 ```
-cd home-book-app-aspnetmvc
-dotnet restore
+cd pexels-image-search
+npm install
 ```
-3. It may be necessary to update the connection string in the `appsettings.json`. Make sure to replace `NBLUCAS` with YOUR appropriate server name. If you're not using Windows Authentication (`Trusted_Connection=True`), ensure you add your `User Id` and `Password` for SQL Server Authentication.
+3. `Run the project`:
 ```
-"ConnectionStrings": {
-  "DefaultConnection": "Server=NBLUCAS\\SQLEXPRESS;Database=HomeBookApp;Trusted_Connection=True;TrustServerCertificate=true"
-}
+npm run dev
 ```
-4. Install the `dotnet-ef` tool:
+4. Access `localhost` to open the website:
 ```
-dotnet tool install --global dotnet-ef
-```
-5. Open the `HomeBookApp.Infrastructure` folder and `Run the migrations`:
-```
-cd HomeBookApp.Infrastructure
-dotnet ef database update --startup-project ../homebookapp
-```
-6. Open the `HomeBookApp` folder and `Run the project`:
-```
-cd ../homebookapp
-dotnet run
-```
-7. Access `localhost` to open the website:
-```
-http://localhost:5129
+http://localhost:5173
 ```
 
 # References
