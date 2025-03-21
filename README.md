@@ -61,11 +61,15 @@ git clone https://github.com/LucasOkokama/pexels-image-search.git
 cd pexels-image-search
 npm install
 ```
-3. `Run the project`:
+3. Create a [`Pexels account`](https://www.pexels.com/api/) and get an `API key`. Next, in the root folder, create a `.env` file and add your API key as follows:
+```
+VITE_PEXELS_API_KEY=<YOUR_API_KEY_HERE>
+```
+5. `Run the project`:
 ```
 npm run dev
 ```
-4. Access `localhost` to open the website:
+5. Access `localhost` to open the website:
 ```
 http://localhost:5173
 ```
