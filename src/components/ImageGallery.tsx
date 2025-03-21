@@ -32,7 +32,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   return (
     <ImageGalleryStyle>
       {images.map((image: any) => (
-        <div className="card">
+        <div className="card" key={image.id}>
           <a
             href={image.src.original}
             target="_blank"
@@ -44,37 +44,37 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
               alt={image.alt}
               className="image"
             />
-
-            <div className="details">
-              <a
-                href={image.photographer_url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="photographer">
-                  <Camera size={18} />
-                  <span>{image.photographer}</span>
-                </div>
-              </a>
-
-              <a
-                href="#"
-                onClick={(event) => {
-                  event.preventDefault();
-                  downloadImage({
-                    imgURL: image.src.original,
-                    id: image.id,
-                    width: image.width,
-                    height: image.height,
-                  });
-                }}
-              >
-                <div className="download">
-                  <Download size={14} />
-                </div>
-              </a>
-            </div>
           </a>
+
+          <div className="details">
+            <a
+              href={image.photographer_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="photographer">
+                <Camera size={18} />
+                <span>{image.photographer}</span>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              onClick={(event) => {
+                event.preventDefault();
+                downloadImage({
+                  imgURL: image.src.original,
+                  id: image.id,
+                  width: image.width,
+                  height: image.height,
+                });
+              }}
+            >
+              <div className="download">
+                <Download size={14} />
+              </div>
+            </a>
+          </div>
         </div>
       ))}
     </ImageGalleryStyle>
