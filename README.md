@@ -44,6 +44,15 @@ The project was developed using React, with HTML and TypeScript for page structu
         </td>
         <td></td>
     </tr>
+    <tr>
+        <th>
+            Dev Tool
+        </th>
+        <td>
+          <img alt="Vite" src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" />
+        </td>
+        <td></td>
+    </tr>
 </table>
 
 
