@@ -65,7 +65,7 @@ npm install
 ```
 VITE_PEXELS_API_KEY=<YOUR_API_KEY_HERE>
 ```
-5. `Run the project`:
+4. `Run the project`:
 ```
 npm run dev
 ```
